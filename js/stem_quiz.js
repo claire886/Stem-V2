@@ -1,3 +1,22 @@
+function quizBox() {
+
+	var quizBox = $("#quizBox");
+
+	quizBox.append("<h1>Here will be the quizbox</h1>");
+	quizBox.append("<button type='button' onclick='hideQuizBox()'>Cancel</button>");
+
+}
+
+function hideQuizBox() {
+
+	var quizBox = $("#quizBox");
+
+	quizBox.children().remove();
+	//quizBox.attr("class", "hideQuizBox");
+}
+
+
+
 function stemQuiz(stemList, listNumber) {
 
 	var targetScore = 0;
@@ -12,8 +31,6 @@ function stemQuiz(stemList, listNumber) {
 	var countWrong = 0;
 	var message = '';
 	var elResult = document.getElementById("quizResult");
-
-	window.location.href = "file:///Users/atree_chen/Desktop/stem_web/quiz.html";
 
 	/*
 	assign a random number to stemList[][0] for sorting. So the order of questions will be different each time.

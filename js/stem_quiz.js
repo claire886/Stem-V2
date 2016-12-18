@@ -1,5 +1,5 @@
 function stemQuiz(stemList, listNumber) {
-	
+
 	var targetScore = 0;
 	var answer = '';
 	var messageCorrectTitle = '<h3>Correct: ';
@@ -12,10 +12,14 @@ function stemQuiz(stemList, listNumber) {
 	var countWrong = 0;
 	var message = '';
 	var elResult = document.getElementById("quizResult");
-	
+
+	window.location.href = "file:///Users/atree_chen/Desktop/stem_web/quiz.html";
+
 	/*
 	assign a random number to stemList[][0] for sorting. So the order of questions will be different each time.
 	*/
+
+
 	for (var j=0; j<stemList.length; j += 1) {
 		stemList[j][0] = Math.floor(Math.random() * 1000);
 	}
@@ -26,12 +30,12 @@ function stemQuiz(stemList, listNumber) {
 
 	for (var i=0; i<stemList.length; i += 1) {
 		answer = prompt(stemList[i][1] + " : " + stemList[i][3]);
-		
+
 		//if user click cancel button in prompt box, the program will stop and show cancelled message
 		if (!answer) {
-		elResult.innerHTML = "The quiz is cancelled.";	
+		elResult.innerHTML = "The quiz is cancelled.";
 		}
-		
+
 		if (answer.toLowerCase() === stemList[i][2].toLowerCase()) {
 			countCorrect += 1;
 			messageCorrect += ' ' + stemList[i][1] + ' ';
@@ -44,11 +48,11 @@ function stemQuiz(stemList, listNumber) {
 
 	if (countCorrect === totalQuestions) {
 		message = '<h2>Quiz#' + quizListNumber + ' Excellent!! Your got all ' +  totalQuestions + ' questions correct!</h2>'
-	            + messageCorrectTitle + countCorrect + '</h3>' + messageCorrect + '</p>' 
+	            + messageCorrectTitle + countCorrect + '</h3>' + messageCorrect + '</p>'
 	            + messageWrongTitle + countWrong + '</h3>' + messageWrong + '</p>';
 	} else {
 		message = '<h2>Quiz#' + quizListNumber + ' Score: '  + countCorrect + '/' + totalQuestions + '</h2>'
-	  	        + messageCorrectTitle + countCorrect + '</h3>' + messageCorrect + '</p>' 
+	  	        + messageCorrectTitle + countCorrect + '</h3>' + messageCorrect + '</p>'
 	            + messageWrongTitle + countWrong + '</h3>' + messageWrong + '</p>';
 	  }
 	elResult.innerHTML = message;

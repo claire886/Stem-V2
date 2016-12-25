@@ -1,18 +1,23 @@
-function quizBox() {
+function quizBox(stemNumber) {
 
 	var quizBox = $("#quizBox");
 
-	quizBox.append("<h1>Here will be the quizbox</h1>");
+	//clear quizResult content.
+	$("#quizResult").text("");
+
+	quizBox.append("<h1>" + stemNumber + "</h1>");
+
+//add cancel button
 	quizBox.append("<button type='button' onclick='hideQuizBox()'>Cancel</button>");
 
 }
 
+//cancel button function
 function hideQuizBox() {
 
 	var quizBox = $("#quizBox");
-
 	quizBox.children().remove();
-	//quizBox.attr("class", "hideQuizBox");
+	$("#quizResult").text("The quiz is cancelled");
 }
 
 

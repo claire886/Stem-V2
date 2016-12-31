@@ -22,17 +22,6 @@ body {
 	color: #af6906;
 }
 
-#quizBox {
-	position: fixed;
-	width: 100%;
-	background-color: #000;
-	color: #fff;
-}
-
-.hideQuizBox {
-	display: none;
-}
-
 #container .root {
 	display: inline;
 }
@@ -67,4 +56,21 @@ button:active {
 #quizResult p {
 	font-size: 18px;
 	margin-top: 0;
+}
+
+
+/*css for quizBox */
+#quizBox {
+	position: fixed;
+	width: 100%;
+	background-color: #000;
+	color: #fff;
+}
+
+.hideQuizBox {
+	display: none;
+}
+
+#cancelQuiz {
+	display: block;
 }

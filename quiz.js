@@ -1,21 +1,22 @@
-var questionCounter = 1;
-var quizBox = $("#quizBox");
-var answer = '';
-
-
 function quizBoxNfirstQuestion(stemList, listNumber) {
+	var questionCounter = 1;
+	var quizBox = $("#quizBox");
+	var answer = '';
+	var correctCount = 0;
+	var wrongCount = 0;
+	var messageCorrect = '';
+	var messageWrong = '';
+	var listIndex = questionCounter - 1;
+
 	//function cancel button
 	function cancelQuiz() {
-		questionCounter = 1;
-		quizBox = $("#quizBox");
-		answer = '';
 		quizBox.children().remove();
 	}
 
 	//function question and answer input elements
 	function question() {
 		$('#questionNumber').text(questionCounter + ' / 25')
-		$('#stemQuestion').text(stemList[questionCounter-1][1] + ' ');
+		$('#stemQuestion').text(stemList[listIndex][1] + ' ');
 		$('#answer').val('');
 		$('#answer').focus();
 	}
@@ -29,6 +30,16 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	function finishQuiz() {
 		$('#answerButton').text('Finish');
 		question();
+	}
+
+	//function to check if answer is correct or not
+	function checkAnswer(answer) {
+		if (answer.toLowerCase() === stemList[listIndex][2].toLowerCase()) {
+			correctCount += 1;
+			messageCorrect += ' ' + stemList[listIndex][1] + ' ';
+		} else {
+			messageWrong += ' ' + stemList[listIndex][1] + stemList[listIndex][3] + ': ' + stemList[listIndex][2] + '</p><p>';
+		}
 	}
 
 	//build quiz body
@@ -49,25 +60,53 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 		cancelQuiz();
 	});
 
-	//click next to get to next question
+	//eventlistener: click next to get to next question
 	//$('#answerButton:contains("Next")').on('click', function() {
 	$('#answerButton').on('click', function() {
-		if ($(this).is(':contains("Next")')) {
+		//if ($(this).is(':contains("Next")')) {
 			answer = $('#answer').val();
-			console.log(questionCounter, answer);
+			checkAnswer(answer);
 			questionCounter += 1;
+			listIndex = questionCounter - 1;
+			console.log(questionCounter);
 			if (questionCounter < stemList.length) {
 				nextQuestion();
 			}
 			if (questionCounter === stemList.length) {
 				finishQuiz();
 			}
-		}
-		if ($(this).is(':contains("Finish")')) {
+		//}
+		//if ($(this).is(':contains("Finish")')) {
 	//click finish to finish the quiz
 	//$('#answerButton:contains("Finish")').on('click', function() {
-			console.log('in finish button');
+		  if (questionCounter > stemList.length) {
+				$('#quizResult').html(messageCorrect);
+				$('#quizResult').html(messageWrong);
+				console.log(messageCorrect, correctCount, wrongCount);
+				cancelQuiz(); //use this function to reset all the variables
 	//});
+			}
+	});
+
+	//eventlistener: press enter on keyboard in input field to get to next question
+	$('#answer').on('keypress', function(e) {
+		if (e.keyCode === 13) {
+			answer = $('#answer').val();
+			checkAnswer(answer);
+			questionCounter += 1;
+			listIndex = questionCounter - 1;
+			if (questionCounter < stemList.length) {
+				nextQuestion();
+			}
+			if (questionCounter === stemList.length) {
+				finishQuiz();
+			}
+			if (questionCounter > stemList.length) {
+				$('#quizResult').html(messageCorrect);
+				$('#quizResult').html(messageWrong);
+				console.log(messageCorrect, correctCount, wrongCount);
+				cancelQuiz(); //use this function to reset all the variables
+			}
 		}
 	});
 }    //end of function quizBoxNfirstQuestion
@@ -85,6 +124,7 @@ function sortStemList(stemList) {
 
 //click different stem quiz button on main page
 $('#quiz_5').on('click', function() {
+	$('#quizResult').text('');
 	sortStemList(stemList_5);
 	quizBoxNfirstQuestion(stemList_5, 5);
 });

@@ -1,24 +1,34 @@
 var questionCounter = 1;
 var quizBox = $("#quizBox");
+var answer = '';
 
 
 function quizBoxNfirstQuestion(stemList, listNumber) {
 	//function cancel button
 	function cancelQuiz() {
+		questionCounter = 1;
+		quizBox = $("#quizBox");
+		answer = '';
 		quizBox.children().remove();
 	}
 
-	//function next quesiton
-	function nextQuestion() {
-			$('#questionNumber').text(questionCounter + ' / 25')
-			$('#stemQuestion').text(stemList[questionCounter-1][1] + ' ');
+	//function question and answer input elements
+	function question() {
+		$('#questionNumber').text(questionCounter + ' / 25')
+		$('#stemQuestion').text(stemList[questionCounter-1][1] + ' ');
+		$('#answer').val('');
+		$('#answer').focus();
 	}
 
+	//function next question
+	function nextQuestion() {
+		question();
+	}
+
+	//function last question
 	function finishQuiz() {
-			$('#answerButton').text('');
-			$('#answerButton').text('Finish');
-			$('#questionNumber').text(questionCounter + ' / 25');
-			$('#stemQuestion').text(stemList[questionCounter-1][1] + ' ');
+		$('#answerButton').text('Finish');
+		question();
 	}
 
 	//build quiz body
@@ -33,27 +43,34 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	//add cancel button
 	quizBox.append("<button type='button' id='cancelQuiz'>Cancel</button>");
 
-	//*** eventlistener ***//
+	//*** eventlistener inside quiz box***//
 	//click cancle button to quit quiz
 	$('#cancelQuiz').on('click', function() {
 		cancelQuiz();
 	});
-	$('#answerButton:contains("Next")').on('click', function() {
-		questionCounter += 1;
-		if (questionCounter < stemList.length) {
-			nextQuestion();
-			console.log(questionCounter, $('#answerButton').text());
-		}
-		if (questionCounter === stemList.length) {
-			finishQuiz();
-			console.log(questionCounter, $('#answerButton').text());
-		}
-	$('#answerButton:contains("Finish")').on('click', function() {
-		console.log('in finish button', questionCounter ++);
-	});
 
+	//click next to get to next question
+	//$('#answerButton:contains("Next")').on('click', function() {
+	$('#answerButton').on('click', function() {
+		if ($(this).is(':contains("Next")')) {
+			answer = $('#answer').val();
+			console.log(questionCounter, answer);
+			questionCounter += 1;
+			if (questionCounter < stemList.length) {
+				nextQuestion();
+			}
+			if (questionCounter === stemList.length) {
+				finishQuiz();
+			}
+		}
+		if ($(this).is(':contains("Finish")')) {
+	//click finish to finish the quiz
+	//$('#answerButton:contains("Finish")').on('click', function() {
+			console.log('in finish button');
+	//});
+		}
 	});
-}
+}    //end of function quizBoxNfirstQuestion
 
 //function: randomlize the stem question
 function sortStemList(stemList) {

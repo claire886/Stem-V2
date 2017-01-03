@@ -1,11 +1,15 @@
 function quizBoxNfirstQuestion(stemList, listNumber) {
 	var questionCounter = 1;
+	var totalQuestions = stemList.length;
 	var quizBox = $("#quizBox");
 	var answer = '';
 	var correctCount = 0;
 	var wrongCount = 0;
-	var messageCorrect = '';
-	var messageWrong = '';
+	var resultTitle = '<h2>Quiz#' + listNumber + ' Score: ';
+	var correctTitle = '<h3>Correct: ';
+	var wrongTitle = '<h3>Wrong: ';
+	var messageCorrect = '<p>';
+	var messageWrong = '<p>';
 	var listIndex = questionCounter - 1;
 
 	//function cancel button
@@ -42,7 +46,17 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 		}
 	}
 
+	function resultReport() {
+		wrongCount = totalQuestions - correctCount;
+		resultTitle +=  correctCount + '/' + totalQuestions + '</h2>';
+		correctTitle += correctCount;
+		wrongTitle += wrongCount;
+		$('#quizResult').html(resultTitle + correctTitle + messageCorrect + '</p>'
+													+ wrongTitle + messageWrong + '</p>');
+	}
+
 	//build quiz body
+	quizBox.append("<button type='button' id='cancelQuiz'>Cancel</button>");
 	quizBox.append("<h1>Stem Quiz " + listNumber + "</h1>");
 	quizBox.append("<h2 id='questionNumber'>" + questionCounter + " / 25 </h2>");
 	quizBox.append("<label id='stemQuestion'></label>");
@@ -50,9 +64,6 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	quizBox.append("<button type='button' id='answerButton'>Next</button>");
 
 	$('#stemQuestion').text(stemList[questionCounter-1][1] + ' ');
-
-	//add cancel button
-	quizBox.append("<button type='button' id='cancelQuiz'>Cancel</button>");
 
 	//*** eventlistener inside quiz box***//
 	//click cancle button to quit quiz
@@ -68,23 +79,19 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 			checkAnswer(answer);
 			questionCounter += 1;
 			listIndex = questionCounter - 1;
-			console.log(questionCounter);
-			if (questionCounter < stemList.length) {
+			if (questionCounter < totalQuestions) {
 				nextQuestion();
 			}
-			if (questionCounter === stemList.length) {
+			if (questionCounter === totalQuestions) {
 				finishQuiz();
 			}
 		//}
 		//if ($(this).is(':contains("Finish")')) {
 	//click finish to finish the quiz
 	//$('#answerButton:contains("Finish")').on('click', function() {
-		  if (questionCounter > stemList.length) {
-				$('#quizResult').html(messageCorrect);
-				$('#quizResult').html(messageWrong);
-				console.log(messageCorrect, correctCount, wrongCount);
-				cancelQuiz(); //use this function to reset all the variables
-	//});
+		  if (questionCounter > totalQuestions) {
+				resultReport();
+				cancelQuiz(); //use this function to quit quiz box
 			}
 	});
 
@@ -95,17 +102,15 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 			checkAnswer(answer);
 			questionCounter += 1;
 			listIndex = questionCounter - 1;
-			if (questionCounter < stemList.length) {
+			if (questionCounter < totalQuestions) {
 				nextQuestion();
 			}
-			if (questionCounter === stemList.length) {
+			if (questionCounter === totalQuestions) {
 				finishQuiz();
 			}
-			if (questionCounter > stemList.length) {
-				$('#quizResult').html(messageCorrect);
-				$('#quizResult').html(messageWrong);
-				console.log(messageCorrect, correctCount, wrongCount);
-				cancelQuiz(); //use this function to reset all the variables
+			if (questionCounter > totalQuestions) {
+				resultReport();
+				cancelQuiz(); //use this function to quit quiz box
 			}
 		}
 	});
@@ -124,7 +129,13 @@ function sortStemList(stemList) {
 
 //click different stem quiz button on main page
 $('#quiz_5').on('click', function() {
-	$('#quizResult').text('');
+	$('#quizResult').text('');  //clear previous quiz result
 	sortStemList(stemList_5);
 	quizBoxNfirstQuestion(stemList_5, 5);
+});
+
+$('#quiz_6').on('click', function() {
+	$('#quizResult').text('');  //clear previous quiz result
+	sortStemList(stemList_6);
+	quizBoxNfirstQuestion(stemList_6, 6);
 });

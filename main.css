@@ -48,23 +48,50 @@ button:active {
 }
 
 #quizResult h3 {
+	font-family: courier, monospace;
 	padding-bottom: 0;
 	margin-bottom: 0;
-	color: yellow;
+	color: black;
 }
 
 #quizResult p {
 	font-size: 18px;
 	margin-top: 0;
+	color: yellow;
 }
 
 
 /*css for quizBox */
 #quizBox {
+	max-width: 1024px;
 	position: fixed;
 	width: 100%;
 	background-color: #000;
 	color: #fff;
+	text-align: center;
+}
+
+#questionNumber {
+}
+
+#stemQuestion {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 28px;
+	margin-right: .6em;
+}
+
+#answer {
+	width: 9em;
+	font-size: 22px;
+	margin-right: 1em;
+	text-align: center;
+}
+
+#answerButton {
+	background-color: brown;
+	height: 2.4em;
+
+
 }
 
 .hideQuizBox {

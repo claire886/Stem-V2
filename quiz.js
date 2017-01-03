@@ -56,7 +56,6 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	}
 
 	//build quiz body
-	quizBox.append("<button type='button' id='cancelQuiz'>Cancel</button>");
 	quizBox.append("<h1>Stem Quiz " + listNumber + "</h1>");
 	quizBox.append("<h2 id='questionNumber'>" + questionCounter + " / 25 </h2>");
 	quizBox.append("<label id='stemQuestion'></label>");
@@ -64,6 +63,9 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	quizBox.append("<button type='button' id='answerButton'>Next</button>");
 
 	$('#stemQuestion').text(stemList[questionCounter-1][1] + ' ');
+
+	//add cancel button
+	quizBox.append("<button type='button' id='cancelQuiz'>Cancel</button>");
 
 	//*** eventlistener inside quiz box***//
 	//click cancle button to quit quiz

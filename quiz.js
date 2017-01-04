@@ -22,6 +22,7 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 		$('#questionNumber').text(questionCounter + ' / 25')
 		$('#stemQuestion').text(stemList[listIndex][1] + ' ');
 		$('#answer').val('');
+		$('#exampleVocabulary').text(stemList[listIndex][3]);
 		$('#answer').focus();
 	}
 
@@ -49,8 +50,8 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	function resultReport() {
 		wrongCount = totalQuestions - correctCount;
 		resultTitle +=  correctCount + '/' + totalQuestions + '</h2>';
-		correctTitle += correctCount;
-		wrongTitle += wrongCount;
+		correctTitle += correctCount + '</h3>';
+		wrongTitle += wrongCount + '</h3>';
 		$('#quizResult').html(resultTitle + correctTitle + messageCorrect + '</p>'
 													+ wrongTitle + messageWrong + '</p>');
 	}
@@ -61,8 +62,10 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	quizBox.append("<label id='stemQuestion'></label>");
 	quizBox.append("<input id='answer' type='text' autofocus='autofocus'>");
 	quizBox.append("<button type='button' id='answerButton'>Next</button>");
+	quizBox.append("<p id='exampleVocabulary'></p>");
 
-	$('#stemQuestion').text(stemList[questionCounter-1][1] + ' ');
+	$('#stemQuestion').text(stemList[listIndex][1] + ' ');
+	$('#exampleVocabulary').text(stemList[listIndex][3]);
 
 	//add cancel button
 	quizBox.append("<button type='button' id='cancelQuiz'>Cancel</button>");
@@ -130,14 +133,24 @@ function sortStemList(stemList) {
 }
 
 //click different stem quiz button on main page
-$('#quiz_5').on('click', function() {
+function quizButton(list, listNumber) {
 	$('#quizResult').text('');  //clear previous quiz result
-	sortStemList(stemList_5);
-	quizBoxNfirstQuestion(stemList_5, 5);
+	sortStemList(list);
+	quizBoxNfirstQuestion(list, listNumber);
+}
+
+$('#quiz_4').on('click', function() {
+  quizButton(stemList_4, 4);
+});
+
+$('#quiz_5').on('click', function() {
+  quizButton(stemList_5, 5);
 });
 
 $('#quiz_6').on('click', function() {
-	$('#quizResult').text('');  //clear previous quiz result
-	sortStemList(stemList_6);
-	quizBoxNfirstQuestion(stemList_6, 6);
+	quizButton(stemList_6, 6);
+});
+
+$('#quiz_7').on('click', function() {
+	quizButton(stemList_7, 7);
 });

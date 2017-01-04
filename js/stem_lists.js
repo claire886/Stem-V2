@@ -1,6 +1,32 @@
 /* use array to store all the stem lists in this js file
 */
-
+var stemList_4 = [
+	[0, 'morph', 'hape', ' amorphous  morphology  polymorphously  mesomorph  protomorphic'],
+	[0, 'vest', 'clothes', ' vestry  vestment  vestibule  vest  investiture  devest  divestiture'],
+	[0, 'bene', 'good', ' benefit  benevolent  beneficial  benediction  benefactor  benign'],
+	[0, 'pond', 'weight', ' ponderoud  ponder  preponderant  pound  imponderable  compound'],
+	[0, 'corp', 'body', ' corpulent  corporation  corporeal  corporal  corpse  corpuscle'],
+	[0, 'dorm', 'sleep', ' dormitory  dormant  dormer  dormancy  dormitive  dormient'],
+	[0, 'pater', 'father', ' paternalistic  patronize  paternity  patriarch  expatriate  paterfamilias'],
+	[0, 'nov', 'new', ' novel  nova  novice  novitiate  Nova Scotia  innovation  rennovate'],
+	[0, 'punct', ' point', ' punctuate  punctilious  puncture  punctual  acupuncture  contrapunctal'],
+	[0, 'ject', 'throw', ' eject  reject  conjecture  dejected  inject  subject  projection  interject'],
+	[0, 'tion', 'to act or state', ' completion  reaction  devastation  production  creation  transition'],
+	[0, 'loco', 'place', ' locomotive  location  local  locus  relocate  dislocate  localize  locomotor'],
+	[0, 'dox', 'opinion', ' orthodox  heterodox  doxology  indoctrinate paradox'],
+	[0, 'amphi', 'both', ' amphibious  amphitheater  amphibian  amphigory  amphibolous'],
+	[0, 'magn', 'great', ' Magn Carta  magnanimous  magnate  magnificent  magnum opus'],
+	[0, 'eu', 'good', ' Eucharist  euphony  eulogy  euphemism  Europe  eugenics  euglena'],
+	[0, 'endo', 'within', ' endoplasm  endocrine  endogamous  endoskeleton  endothermic'],
+	[0, 'phobia', 'fear', ' clausphobia  acrophobia  xenophobia  agoraphobia hydrphobia'],
+	[0, 'ortho', 'straight', ' orthopedics  orthodontist  orthodox  orthography  orthogonal'],
+	[0, 'ut', 'think', ' reputation  putative  impute  dispute  computer  disreputable'],
+	[0, 'ver', 'true', ' verify  veracity  veritable  verdict  versimiliude  aver  cinema  verite'],
+	[0, 'matri', 'mother', ' matricide  matron  matriarch  matrimony  metropolis  matrilineal'],
+	[0, 'mega', 'large', ' megalith  megaphone  megalomania  megalopolis  megahertz'],
+	[0, 'pop', 'people', ' popular  populist  populate  population  popularize  populous'],
+	[0, 'sangui', 'blood', ' sanguinary  sanguine  consanguinity  sangfroid  sangria']
+];
 
 var stemList_5 = [
 	[0, 'vita', 'life', ' *vitamin  *vitality  *vital  *revitalize  *viable  *vitalism  *devitalize'],
@@ -31,17 +57,17 @@ var stemList_5 = [
 ];
 
 var stemList_6 = [
-	[0, 'germ', 'vital or related', 
+	[0, 'germ', 'vital or related',
 		' *germane  *germinate  *germicide  *germinal  *germ'],
-	[0, 'greg', 'group', 
+	[0, 'greg', 'group',
 		' *gregarious  *egregious  *gregariously  *segregate  *congregate  *aggregate'],
-	[0, 'mar', 'sea', 
+	[0, 'mar', 'sea',
 		' *marine  *marina  *ultramarine  *martime  *mariner  *marinate  *submarine'],
-	[0, 'prim', 'first', 
+	[0, 'prim', 'first',
 		' *prime  *primary  *primate  *primogeniture  *primeval  *prima  *donna  *primo'],
-	[0, 'pyro', 'fire', 
+	[0, 'pyro', 'fire',
 		' *pyre  *pyromania  *pyrotechnic  *pyrogenic  *pyrophobia  *pyrometer'],
-	[0, 'clam', 'cry out', 
+	[0, 'clam', 'cry out',
 		' *clamorous  *exclamation  *clamor  *exclamatory  *clamant  *declaim'],
 	[0, 'plu', 'more',
 		' *plural  *plurality  *plus  *pluralize  *pluriaxial  *pluralism  *nonplussed'],
@@ -80,5 +106,33 @@ var stemList_6 = [
 	[0, 'trans', 'across',
 		'  *transfer  *translate  *transmit  *transfusion  *translucent  *transcend'],
 	[0, 'gamy', 'marriage',
-		'  *monogamy  *polygamy  *bigamy  *gamete  *autogamous  *exogamy']		
+		'  *monogamy  *polygamy  *bigamy  *gamete  *autogamous  *exogamy']
+];
+
+var stemList_7 = [
+	[0, 'numer', 'number', ' enumerate  numeral  numerous  supernumeraries  numerology'],
+	[0, 'fort', 'strong', ' fortitude  fort  fortify  fortification  comfort  forte  fortissimo  pianoforte'],
+	[0, 'osteo', 'bone', ' osteopath  osteology  osteopathy  osteoblast  osteocyte  osteotomy'],
+	[0, 'ornith', 'bird', ' ornithology  ornithologist  ornithopter   ornithomancy'],
+	[0, 'polis', 'city', '  metropolis  megalopolis  police  polite  policy acropolis necropolis'],
+	[0, 'fus', 'pour', ' transfusion  infusion  infusion  fusillade  infuse  confusion'],
+	[0, 'ego', 'I', ' egomaniac egocentric  egotstical   egotist  egotize  egosim  alter ego'],
+	[0, 'spir', 'breathe', ' inspire  respiration  perspiration  expire  spirit  aspire  conspire'],
+	[0, 'dia', 'across', ' diagonal  diameter  dialouge  dialect  diatribe  diaphanous  dialectic'],
+	[0, 'acr', 'sharp', ' acrimonious  acerbity  acrid  acridine  acrimony  acerate'],
+	[0, 'acro', 'high', ' acrobat  acronym  acropolis  acrophobia  acromegaly  acrocarpous'],
+	[0, 'culp', 'blame', ' culprit  culpable  exculpate  inculpate  exculpatory'],
+	[0, 'derm', 'skin', ' dermatologist  dermatitis  pachyderm  hypodermic  ectoderm  endoderm'],
+	[0, 'zo', 'animal', ' zoo  protozoa  zoophilous  zooplankton  zoophagous  Mesozoic  zodiac'],
+	[0, 'per', 'through', ' perception  perforation  percolate  perambulate  peregrination'],
+	[0, 'pac', 'peace', ' pacify  pacfic  pacifist  pacifier  pacifism  Pax Romana  pacification'],
+	[0, 'brev', 'short', ' brevity  abbreviation  breve  breviary  brevirostrate  brief'],
+	[0, 'necro', 'death', ' necropolis  necromancer  necrophobia  necrotic  necrobiosis'],
+	[0, 'urb', 'city', ' urban  urbane  suburbs  urbanite  urbanologist  urbanism'],
+	[0, 'pugn', 'fight', ' pugnacious  reoungnant  pugilist  impugn  oppugn  inexpugnable'],
+	[0, 'ecto', 'outer', ' ectoderm  ectozoa  ectomorph  ectothermic  ectoplasm  ectoparasite'],
+	[0, 'plasto', 'molded', ' plastic  dermoplasty  rhinoplasty  plaster  plasticity  plastid'],
+	[0, 'agog', 'leader', ' dermagogue  pedagogue  synagogue  agogics  pedagogy  mystagogue'],
+	[0, 'cle', 'small', ' molecule  corpuscule  follicle  minuscule  ventricle  particle  vessicle'],
+	[0, 'il', 'not', '  illegal  illiterate  illict  illogical  illegible  illiberal']
 ];

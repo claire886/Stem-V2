@@ -1,3 +1,4 @@
+//function to build quiz box
 function quizBoxNfirstQuestion(stemList, listNumber) {
 	var questionCounter = 1;
 	var totalQuestions = stemList.length;
@@ -15,11 +16,12 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	//function cancel button
 	function cancelQuiz() {
 		quizBox.children().remove();
+		$('#mainPageScreen').removeClass('inactiveMainPage');
 	}
 
-	//function question and answer input elements
+	//function for question and answer input elements inside quiz box
 	function question() {
-		$('#questionNumber').text(questionCounter + ' / 25')
+		$('#questionNumber').text(questionCounter + ' / ' + totalQuestions)
 		$('#stemQuestion').text(stemList[listIndex][1] + ' ');
 		$('#answer').val('');
 		$('#exampleVocabulary').text(stemList[listIndex][3]);
@@ -43,7 +45,7 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 			correctCount += 1;
 			messageCorrect += ' ' + stemList[listIndex][1] + ' ';
 		} else {
-			messageWrong += ' ' + stemList[listIndex][1] + stemList[listIndex][3] + ': ' + stemList[listIndex][2] + '</p><p>';
+			messageWrong += ' ' + stemList[listIndex][1] + ': ' + stemList[listIndex][2] + stemList[listIndex][3] + '</p><p>';
 		}
 	}
 
@@ -58,7 +60,7 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 
 	//build quiz body
 	quizBox.append("<h1>Stem Quiz " + listNumber + "</h1>");
-	quizBox.append("<h2 id='questionNumber'>" + questionCounter + " / 25 </h2>");
+	quizBox.append("<h2 id='questionNumber'>" + questionCounter + " / " + totalQuestions + "</h2>");
 	quizBox.append("<label id='stemQuestion'></label>");
 	quizBox.append("<input id='answer' type='text' autofocus='autofocus'>");
 	quizBox.append("<button type='button' id='answerButton'>Next</button>");
@@ -121,7 +123,9 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	});
 }    //end of function quizBoxNfirstQuestion
 
-//function: randomlize the stem question
+
+
+//function: randomlize the stem question to make the questions not show up in a fixed order
 function sortStemList(stemList) {
 	for (var j=0; j<stemList.length; j += 1) {
 		stemList[j][0] = Math.floor(Math.random() * 1000);
@@ -132,13 +136,26 @@ function sortStemList(stemList) {
 	});
 }
 
-//click different stem quiz button on main page
+
+//to add root words after each quiz button
+$('#container .root').each(function(index) {
+	var stemWords = '';
+	for (i=0; i<allStemList[index].length; i += 1) {
+		stemWords += '' + allStemList[index][i][1]+':'
+								+ allStemList[index][i][2]+ '; ';
+	}
+	$(this).text(stemWords);
+});
+
+
 function quizButton(list, listNumber) {
 	$('#quizResult').text('');  //clear previous quiz result
+	$('#mainPageScreen').addClass('inactiveMainPage');
 	sortStemList(list);
 	quizBoxNfirstQuestion(list, listNumber);
 }
 
+//eventlistener: click different quiz button on main page
 $('#quiz_4').on('click', function() {
   quizButton(stemList_4, 4);
 });

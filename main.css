@@ -39,7 +39,7 @@ body {
 	display: inline-block;
 	vertical-align: top;
 	width: 90%;
-	margin-top: 3px;
+	margin-top: 0;
 	text-align: justify;
 	font-family: Arial, Verdana, sans-serif;
 }

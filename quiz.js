@@ -14,49 +14,53 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	var listIndex = questionCounter - 1;
 
 	//function cancel button
-	function cancelQuiz() {
-		quizBox.children().remove();
-		$('#mainPageScreen').removeClass('inactiveMainPage');
-	}
+		function cancelQuiz() {
+			quizBox.children().remove();
+			$('#mainPageScreen').removeClass('inactiveMainPage');
+		}
 
 	//function for question and answer input elements inside quiz box
-	function question() {
-		$('#questionNumber').text(questionCounter + ' / ' + totalQuestions)
-		$('#stemQuestion').text(stemList[listIndex][1] + ' ');
-		$('#answer').val('');
-		$('#exampleVocabulary').text(stemList[listIndex][3]);
-		$('#answer').focus();
-	}
+		function question() {
+			$('#questionNumber').text(questionCounter + ' / ' + totalQuestions)
+			$('#stemQuestion').text(stemList[listIndex][1] + ' ');
+			$('#answer').val('');
+			$('#exampleVocabulary').text(stemList[listIndex][3]);
+			$('#answer').focus();
+		}
 
 	//function next question
-	function nextQuestion() {
-		question();
-	}
+		function nextQuestion() {
+			question();
+		}
 
 	//function last question
-	function finishQuiz() {
-		$('#answerButton').text('Finish');
-		question();
-	}
+		function finishQuiz() {
+			$('#answerButton').text('Finish');
+			question();
+		}
 
 	//function to check if answer is correct or not
-	function checkAnswer(answer) {
-		if (answer.toLowerCase() === stemList[listIndex][2].toLowerCase()) {
-			correctCount += 1;
-			messageCorrect += ' ' + stemList[listIndex][1] + ' ';
-		} else {
-			messageWrong += ' ' + stemList[listIndex][1] + ': ' + stemList[listIndex][2] + stemList[listIndex][3] + '</p><p>';
+		function checkAnswer(answer) {
+			if (answer.toLowerCase() === stemList[listIndex][2].toLowerCase()) {
+				correctCount += 1;
+				messageCorrect += ' ' + stemList[listIndex][1] + ' ';
+			} else {
+				messageWrong += ' ' + stemList[listIndex][1] + ': ' + stemList[listIndex][2] + stemList[listIndex][3] + '</p><p>';
+			}
 		}
-	}
 
-	function resultReport() {
-		wrongCount = totalQuestions - correctCount;
-		resultTitle +=  correctCount + '/' + totalQuestions + '</h2>';
-		correctTitle += correctCount + '</h3>';
-		wrongTitle += wrongCount + '</h3>';
-		$('#quizResult').html(resultTitle + correctTitle + messageCorrect + '</p>'
-													+ wrongTitle + messageWrong + '</p>');
-	}
+		function resultReport() {
+			wrongCount = totalQuestions - correctCount;
+			resultTitle +=  correctCount + '/' + totalQuestions + '</h2>';
+			correctTitle += correctCount + '</h3>';
+			wrongTitle += wrongCount + '</h3>';
+			$('#quizResult').html(resultTitle + correctTitle + messageCorrect + '</p>'
+														+ wrongTitle + messageWrong + '</p>');
+
+		//make it scroll to resultReport
+			var offset = $('#quizResult').offset();
+			window.scrollTo(0, offset.top-200);
+		}
 
 	//build quiz body
 	quizBox.append("<h1>Stem Quiz " + listNumber + "</h1>");
@@ -65,6 +69,7 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	quizBox.append("<input id='answer' type='text' autofocus='autofocus'>");
 	quizBox.append("<button type='button' id='answerButton'>Next</button>");
 	quizBox.append("<p id='exampleVocabulary'></p>");
+	$('#answer').focus();
 
 	$('#stemQuestion').text(stemList[listIndex][1] + ' ');
 	$('#exampleVocabulary').text(stemList[listIndex][3]);
@@ -127,10 +132,18 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 
 //function: randomlize the stem question to make the questions not show up in a fixed order
 function sortStemList(stemList) {
-	for (var j=0; j<stemList.length; j += 1) {
-		stemList[j][0] = Math.floor(Math.random() * 1000);
+	if (!Number.isInteger(stemList[0][0])) {
+		for (var j=0; j<stemList.length; j += 1) {
+			//add a random number at the beginning of array
+			stemList[j].unshift(Math.floor(Math.random() * 1000));
+		}
 	}
-
+	else {
+		for (var j=0; j<stemList.length; j += 1) {
+			stemList[j][0] = Math.floor(Math.random() * 1000);
+		}
+	}
+	//sort the array by the random number to make quesiton sequece varied each time
 	stemList.sort(function(a, b) {
 		return a[0]-b[0];
 	});
@@ -141,8 +154,8 @@ function sortStemList(stemList) {
 $('#container .root').each(function(index) {
 	var stemWords = '';
 	for (i=0; i<allStemList[index].length; i += 1) {
-		stemWords += '' + allStemList[index][i][1]+':'
-								+ allStemList[index][i][2]+ '; ';
+		stemWords += '' + allStemList[index][i][0]+':'
+								+ allStemList[index][i][1]+ '; ';
 	}
 	$(this).text(stemWords);
 });
@@ -156,6 +169,9 @@ function quizButton(list, listNumber) {
 }
 
 //eventlistener: click different quiz button on main page
+$('#quiz_1').on('click', function() {
+  quizButton(stemList_1, 1);
+});
 $('#quiz_4').on('click', function() {
   quizButton(stemList_4, 4);
 });
@@ -170,4 +186,8 @@ $('#quiz_6').on('click', function() {
 
 $('#quiz_7').on('click', function() {
 	quizButton(stemList_7, 7);
+});
+
+$('#quiz_8').on('click', function() {
+	quizButton(stemList_8, 8);
 });

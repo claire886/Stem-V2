@@ -154,8 +154,8 @@ function sortStemList(stemList) {
 $('#container .root').each(function(index) {
 	var stemWords = '';
 	for (i=0; i<allStemList[index].length; i += 1) {
-		stemWords += '' + allStemList[index][i][0]+':'
-								+ allStemList[index][i][1]+ '; ';
+		stemWords += allStemList[index][i][0]+':'
+								+ allStemList[index][i][1]+ ' ';
 	}
 	$(this).text(stemWords);
 });
@@ -171,6 +171,12 @@ function quizButton(list, listNumber) {
 //eventlistener: click different quiz button on main page
 $('#quiz_1').on('click', function() {
   quizButton(stemList_1, 1);
+});
+$('#quiz_2').on('click', function() {
+  quizButton(stemList_2, 2);
+});
+$('#quiz_3').on('click', function() {
+  quizButton(stemList_3, 3);
 });
 $('#quiz_4').on('click', function() {
   quizButton(stemList_4, 4);

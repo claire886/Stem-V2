@@ -33,6 +33,10 @@ body {
 
 #header p {
 	color: #af6906;
+	margin-top: .9em;
+	font-size: 1.2em;
+	font-family: Times, Georgia, "Times New Roman", SERIF;
+	font-style: italic;
 }
 
 #container .root {
@@ -42,23 +46,33 @@ body {
 	margin-top: 0;
 	text-align: justify;
 	font-family: Arial, Verdana, sans-serif;
+	word-spacing: .2em;
 }
 
 button {
+	font-family: "Times New Roman", Georgia, Times, SERIF;
+	font-weight: bold;
 	background-color: orange;
-	font-size: 16px;
-	padding: 10px;
+	font-size: 18px;
+	padding: .4em;
 	margin-right: 10px;
+	border-top-color: #666666;
+	border-left-color: #666666;
 }
 
 button:hover {
-	background-color: firebrick;
+	background-color: #d85b17;
 }
 
 #quizResult {
 	background-color: darkgreen;
 	padding: .2em 0 2em .8em;
 	color: white;
+}
+
+#quizResult h2 {
+	word-spacing: .2em;
+	font-family: Georgia, Times, 'Times New Roman', serif;
 }
 
 #quizResult h3 {
@@ -81,6 +95,7 @@ button:hover {
 #quizBox {
 	max-width: 1024px;
 	position: fixed;
+	top: 22%;
 	z-index: 100;
 	width: 100%;
 	background-color: #000;

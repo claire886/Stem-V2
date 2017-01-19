@@ -30,6 +30,34 @@ var stemList_1 = [
 		['un', 'not', ' *unfit  unequal  undone  unequivocal  unearned  unconventional  untenable']
 ];
 
+var stemList_2 = [
+		['archy', 'government', ' *monarchy  oligarchy  hierarchy  anarchy  matriarchal  patriarchy'],
+		['ard', 'always', ' *drunkard  coward  braggart  laggard  dullard  sluggard  niggerardy'],
+		['cide', 'kill', ' *herbicide  homicide  matricide  suicide  regicide  genocide  fratricide'],
+		['ician', 'specialist', ' *technician  musician  beautician  physician  statistician  clinician'],
+		['itis', 'infection', ' *appendicitis  tonsillitis  bursitis  arthritis  gastroenteritis  colitis'],
+		['aqua', 'water', ' *aquarium  aquatic  aquaplane  aqueduct  aquifer  aqueous  semiaquatic'],
+		['audi', 'hear', ' *audiophile  audience  audition  auditory  audiometer  audit  audiology'],
+		['bell', 'war', ' *bellicose  belligerent  bellow  rebel  casus belli  counterrebellion'],
+		['cap', 'take', ' *capture  captive  captor  captious  captivate  captivity  caption  capsule'],
+		['cise', 'cut', ' *excise  incisors  incision  circumcise  incisive  precise  concise  decision'],
+		['bio', 'life', ' *biography  biology  biomorphic  biochemistry  exobiology  biogenesis'],
+		['auto', 'self', ' *autobiography  automobile  autograph  automatic  automaton  autocracy'],
+		['port', 'carry', ' *transport  import  report  porter  deport  important  portage  portly'],
+		['scrib', 'write', ' *scribble  inscribe  scribe  describe  conscription  transcribe  ascribe'],
+		['logy', 'science', ' *biology  anthropology  geology  entomology  philology  mythology'],
+		['dict', 'say', ' *dictionary  predict  malediction  dictation  addict  interdict  contradict'],
+		['cred', 'believe', ' *credit  incredible  credible  incredulous  discredited  credibility  credo'],
+		['cent', 'one hundred', ' *century  bicentennial  centimeter  centipede  centurion  cent'],
+		['neo', 'new', ' *neologism  neophyte  neon  neolithic  neoclassic  neoPlatonist  neonatal'],
+		['ad', 'to', ' *adhesive  adapt  addendum  addition  adherent  addict  advent  advocate'],
+		['cede', 'go', ' *recede  precede  antecedent  proceed  secede  concede  intercede  succeed'],
+		['miss', 'send', ' *dismiss  remiss  missile  admission  missionary  emission  promissory'],
+		['centri', 'center', ' *centrifugal  centripetal  centrist  concentric  decentralize  eccentric'],
+		['biblio', 'book', ' *bibliography  bibliophile  bibliolatry  bible  bibliomania  bibliophobia'],
+		['anthropo', 'man', ' *anthropology  anthropomorphic  anthropoid  lycanthrope']
+];
+
 var stemList_3 = [
 		['homo', 'same', ' *homogenize  homonym  homophone  homologuos  homozygous'],
 		['spec', 'look', ' *spectacles  specter  speck  specious  spectrum  respect  inspect  prospectus'],
@@ -199,4 +227,5 @@ var stemList_8 = [
 ];
 
 //put all stem lists in a variable
-var allStemList = [stemList_1, stemList_3, stemList_4, stemList_5, stemList_6, stemList_7, stemList_8];
+var allStemList = [stemList_1, stemList_2, stemList_3, stemList_4, stemList_5, stemList_6,
+	  stemList_7, stemList_8];

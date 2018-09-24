@@ -1,0 +1,176 @@
+body {
+	max-width: 1024px;
+	width: 100%;
+	margin: auto;
+}
+
+/** #mainPage.inactiveMainPage { **/
+#mainPageScreen.inactiveMainPage {
+	position: fixed;
+  max-width: 1024px;
+	width: 100%;
+	height: 100%;
+	/** background-color: #273D44; **/
+	background-color: #67b8ee;
+	background: linear-gradient( #67b8ee, white);
+	z-index: 1;
+	margin-top: 0;
+}
+
+#header {
+	background-color: #67b8ee;
+	text-align: center;
+	padding: .2em .5em .5em .5em;
+	font-size: 1.5em;
+	margin-bottom: .5em;
+	letter-spacing: 1px;
+	position: relative;
+	top: -6px;
+}
+
+#header a {
+	position: relative;
+	left: 49%;
+}
+
+#header h1 {
+	margin-top: 0;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	padding-top: .2em;
+}
+
+#header p {
+	color: #af6906;
+	margin-top: .9em;
+	font-size: 1.2em;
+	font-family: Times, Georgia, "Times New Roman", SERIF;
+	font-style: italic;
+}
+
+#container button {
+	width: 84px;
+}
+
+#container .root {
+	display: inline-block;
+	vertical-align: top;
+	width: 90%;
+	margin-top: 0;
+	margin-left: 8px;
+	text-align: justify;
+	font-family: Arial, Verdana, sans-serif;
+	word-spacing: .2em;
+}
+
+button {
+	font-family: "Times New Roman", Georgia, Times, SERIF;
+	font-weight: bold;
+	background-color: orange;
+	font-size: 18px;
+	padding: .4em;
+	margin-left: 5px;
+	border-top-color: #666666;
+	border-left-color: #666666;
+}
+
+button:hover {
+	background-color: #d85b17;
+}
+
+#quizResult {
+	background-color: darkgreen;
+	padding: .2em 0 2em .8em;
+	color: white;
+	margin-left: 1px;
+}
+
+#quizResult h2 {
+	word-spacing: .2em;
+	font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+#quizResult h3 {
+	font-family: courier, monospace;
+	margin-bottom: .3em;
+	color: black;
+	font-size: 24px;
+}
+
+#quizResult p {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 16px;
+	margin-left: 1em;
+	color: yellow;
+	padding-bottom: 0;
+}
+
+.stemWords {
+	text-decoration: underline;
+}
+
+.wrongAnswer {
+	color: blue;
+	font-weight: lighter;
+	text-decoration: line-through;
+}
+
+/*css for quizBox */
+#quizBox {
+	max-width: 1024px;
+	position: fixed;
+	top: 22%;
+	z-index: 100;
+	width: 100%;
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+}
+
+#stemQuestion {
+	position: absolute;
+	right: 61%;
+	display: inline-block;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 28px;
+	text-align: right;
+	margin-right: .6em;
+}
+
+#answer {
+	position: absolute;
+	left: 39%;
+	width: 9em;
+	font-size: 24px;
+	color: darkblue;
+	font-weight: bold;
+	margin: 0 .6em .3em 0;
+	text-align: left;
+	padding-left: .3em;
+}
+
+#answerButton {
+	position: absolute;
+	clear: right;
+	left: 62%;
+	background-color: #C75F08;
+	vertical-align: top;
+	height: 2em;
+}
+
+#exampleVocabulary {
+	font-size: 18px;
+	font-family: Verdana, Arial, sans-serif;
+	margin-top: 70px;
+}
+
+#cancelQuiz {
+	display: block;
+	position: absolute;
+	left: 94%;
+	top: 3%;
+	background-color: gray;
+	font-size: 12px;
+	padding: 2px 3px;
+	margin-bottom: 0;
+}

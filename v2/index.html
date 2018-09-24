@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name='description' content='stem words practice & quizzes'>
+	<meta name='keywords' content='stem words, root words, english vocabulary, vocabulary practice'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel='stylesheet' media='(max-width: 640px)' href='small_screen.css'>
+	<title>Stem Words</title>
+</head>
+
+<body>
+
+	 <!--to mkae a screen on top of main page to inactvate main page when click quiz button-->
+	 	<div id='screenQuizType'></div>
+<!-- alert box for users click quiz box before select a quiz type -->
+		<div id='alertBoxQuizType' class='hide'>
+			<h3>Please select a quiz type before clicking the quiz button.</h3>
+			<hr>
+			<button id='buttonAlertQT'>Close</button>
+		</div>
+
+<!-- alert box for users click quiz box before select a quiz type -->
+		<div id='alertSelectChoice' class='hide'>
+			<h3>Please choose an answer before getting to the next question.</h3>
+			<hr>
+			<button id='buttonAlertSelectChoice'>Close</button>
+		</div>
+
+
+		</div>
+		<p id='mainPageScreen'></p>
+
+	<div id="header">
+		<a href='mailto:admin@learning99.com'>
+			<img src='email-icon.png' alt='Link to send email' title='Send an email.' width="30" height="23">
+		</a>
+		<h1>Welcome to Stem Words Quizzes</h1>
+		<p><span style="font-weight:bold">Select</span> a Quiz Type and
+			 <span style="font-weight:bold">Click</span> a Quiz button to start. Happy Learning!</p>
+		 <div id='quizType' class='unchecked'><span id='spanQuizType'>Quiz Type:</span>
+	 			<label><input type='radio' name='quizType' value='blank'>Fill in the blank</label>
+	 			<label><input type='radio' name='quizType' value='choice'>Multiple choice</label>
+	 	</div>
+	</div>
+
+	<!-- this is where the quizBox will locate, quizBox will be built when user click quiz button through quiz.js file -->
+	<div id="quizBox">
+	</div>
+
+	<div id="container">
+
+	</div>
+
+	<div>
+		<p id="quizResult">
+		</p>
+	</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="quiz.js"></script>
+
+</body>
+
+</html>

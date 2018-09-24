@@ -59,10 +59,11 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 
 		//make it scroll to resultReport
 			var offset = $('#quizResult').offset();
-			window.scrollTo(0, offset.top-200);
+			window.scrollTo(0, offset.top-150);
 		}
 
 	//build quiz body
+	window.scrollTo(0, 100);
 	quizBox.append("<h1>Stem Quiz " + listNumber + "</h1>");
 	quizBox.append("<h2 id='questionNumber'>" + questionCounter + " / " + totalQuestions + "</h2>");
 	quizBox.append("<label id='stemQuestion'></label>");
@@ -128,7 +129,7 @@ function quizBoxNfirstQuestion(stemList, listNumber) {
 	});
 }    //end of function quizBoxNfirstQuestion
 
-
+//==============================================================
 
 //function: randomlize the stem question to make the questions not show up in a fixed order
 function sortStemList(stemList) {
@@ -196,4 +197,20 @@ $('#quiz_7').on('click', function() {
 
 $('#quiz_8').on('click', function() {
 	quizButton(stemList_8, 8);
+});
+
+$('#quiz_9').on('click', function() {
+	quizButton(stemList_9, 9);
+});
+
+$('#quiz_10').on('click', function() {
+	quizButton(stemList_10, 10);
+});
+
+$('#quiz_11').on('click', function() {
+	quizButton(stemList_11, 11);
+});
+
+$('#quiz_12').on('click', function() {
+	quizButton(stemList_12, 12);
 });

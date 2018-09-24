@@ -1,0 +1,107 @@
+#header {
+  margin-bottom: 0;
+  position: relative;
+	top: -16px;
+}
+
+#header a {
+  display: none;
+}
+
+#header h1 {
+  font-size: .85em;
+}
+
+#header p {
+  display: none;
+}
+
+button {
+  margin-top: 0;
+  padding: 2px;
+  font-size: 16px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#container .root {
+  width: 95%;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+#quizBox {
+  position: fixed;
+  top: 0;
+}
+
+#quizBox h1 {
+  display: none;
+}
+
+#quizBox h2 {
+  text-align: left;
+  font-size: 18px;
+  margin: 5px 0 0 8px;
+}
+
+#stemQuestion {
+  display: block;
+  text-align: center;
+  margin-bottom: 5px;
+  width: auto;
+  position: relative;
+  top:-7px;
+}
+
+#answer {
+  text-align: center;
+  width: 50%;
+  position: relative;
+  left: 3%;
+  border-style: none;
+  border-width: 1px;
+  border-color: black;
+}
+
+#answerButton {
+  height: auto;
+  position: relative;
+  top: -3px;
+  left: 3px;
+  padding: 3px;
+  vertical-align: middle;
+}
+
+#exampleVocabulary {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#cancelQuiz {
+  position: relative;
+  left: 0;
+  padding: 1px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+}
+
+#quizResult {
+  padding: 0;
+  margin-top: 0;
+}
+
+#quizResult h2 {
+  padding: 5px 0 0 5px;
+  margin-bottom: 10px;
+}
+
+#quizResult h3 {
+  margin: 0 0 0 5px;
+  padding: 0;
+}
+
+#quizResult p {
+  margin: 5px 0 10px 10px;
+  padding-top: 0;
+}
